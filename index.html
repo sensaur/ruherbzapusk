@@ -207,6 +207,124 @@
                 display: none !important;
             }
         }
+
+        /* Стиль для выпадающего меню - ярко-зеленый фон */
+        .navbar-collapse,
+        .navbar-collapse .navbar-nav,
+        .navbar-collapse .navbar-nav .nav-item,
+        .navbar-collapse .ms-lg-3 {
+            background-color: #78DC78 !important;
+        }
+
+        .navbar-collapse .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+
+        .navbar-collapse .navbar-nav .nav-link:hover {
+            color: #005A5A !important;
+        }
+
+        /* Убираем фон у кнопки в меню, если он есть */
+        .navbar-collapse .btn {
+            background-color: transparent !important;
+        }
+
+        /* Кастомные стилизованные буллетпоинты для списка качества */
+        .quality-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .quality-list li {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #1e2022;
+            display: flex;
+            align-items: center;
+            min-height: 2rem;
+        }
+
+        .quality-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            background: linear-gradient(135deg, #005A5A 0%, #007A7A 100%);
+            box-shadow: 0 2px 8px rgba(0, 90, 90, 0.2);
+        }
+
+        .quality-list li::after {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .quality-list li:nth-child(1)::after {
+            content: '\F26B'; /* bi-clipboard-check */
+            font-family: 'bootstrap-icons';
+        }
+
+        .quality-list li:nth-child(2)::after {
+            content: '\F4A5'; /* bi-file-earmark-text */
+            font-family: 'bootstrap-icons';
+        }
+
+        .quality-list li:nth-child(3)::after {
+            content: '\F4A7'; /* bi-file-earmark-check */
+            font-family: 'bootstrap-icons';
+        }
+
+        .quality-list li:nth-child(4)::after {
+            content: '\F4E6'; /* bi-shield-check */
+            font-family: 'bootstrap-icons';
+        }
+
+        .quality-list li:nth-child(5)::after {
+            content: '\F4F8'; /* bi-building */
+            font-family: 'bootstrap-icons';
+        }
+
+        .quality-list li::before,
+        .quality-list li::after {
+            transition: all 0.3s ease;
+        }
+
+        .quality-list li:hover::before {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 90, 90, 0.3);
+        }
+
+        .quality-list li:hover::after {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .quality-list li {
+            transition: color 0.3s ease;
+        }
+
+        .quality-list li:hover {
+            color: #005A5A;
+        }
         </style>
 
     <!-- Yandex.Metrika counter -->
@@ -724,12 +842,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     <div class="row g-4 align-items-center mb-4">
                         <div class="col-md-6">
-                            <ul class="list-checked list-checked-soft-bg-primary list-checked-lg mb-0">
-                                <li class="list-checked-item">Контроль качества</li>
-                                <li class="list-checked-item">Регистрация в Роспотребнадзоре</li>
-                                <li class="list-checked-item">Сертификация</li>
-                                <li class="list-checked-item">Безопасность</li>
-                                <li class="list-checked-item">Проверенные производства</li>
+                            <ul class="quality-list mb-0">
+                                <li>Контроль качества</li>
+                                <li>Регистрация в Роспотребнадзоре</li>
+                                <li>Сертификация</li>
+                                <li>Безопасность</li>
+                                <li>Проверенные производства</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -737,9 +855,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
                     <div class="text-center">
-                        <div class="d-flex flex-wrap gap-3 justify-content-center">
-                            <span class="small text-muted"><strong>GMP</strong></span>
-                            <span class="small text-muted"><strong>ISO</strong></span>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center align-items-center">
+                            <img src="./assets/img/06_gmp.jpg" alt="GMP Certified" style="height: 80px; width: 80px; object-fit: contain;">
+                            <img src="./assets/img/07_iso.png" alt="ISO" style="height: 80px; width: 80px; object-fit: contain;">
                             <span class="small text-muted"><strong>Производство РФ</strong></span>
                         </div>
                     </div>
@@ -893,28 +1011,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ========== END MAIN CONTENT ========== -->
 
 <!-- ========== FOOTER ========== -->
-<footer>
-    <div class="container pb-1 pb-lg-7">
-        <div class="row content-space-t-2">
-            <div class="col-lg-3 mb-7 mb-lg-0">
-                <div class="mb-5">
-                    <a class="navbar-brand" href="./index.html" aria-label="RuHerb">
-                        <img class="navbar-brand-logo" src="./assets/svg/logos/ruHerbLogo4.svg" alt="Logo">
+<footer style="background-color: #005A5A; color: #FFFFFF;">
+    <div class="container-fluid py-4 py-lg-5">
+        <div class="row align-items-start g-0">
+            <!-- Колонка 1: Логотип и информация -->
+            <div class="col-md-3 mb-4 mb-md-0" style="padding-left: 0;">
+                <div class="mb-3">
+                    <a class="navbar-brand d-inline-block" href="./index.html" aria-label="RuHerb" style="padding: 0; margin: 0;">
+                        <img class="navbar-brand-logo" src="./assets/svg/logos/ruHerbLogo4.svg" alt="Logo" style="max-height: 2rem; width: auto; margin: 0; display: block;">
                     </a>
                 </div>
-                <ul class="list-unstyled list-py-1">
-                    <li><a class="link-sm link-secondary" href="#"><i class="bi-geo-alt-fill me-1"></i> 127474 Москва,</a></li>
-                    <li><a class="link-sm link-secondary" href="#">Дмитровское шоссе, 60</a></li>
-                </ul>
-    </div>
-</div>
-
-        <div class="border-top my-3"></div>
-
-        <div class="w-md-85 text-lg-center mx-lg-auto">
-            <p class="text-muted small mb-2">&copy; Ruherb. 2026</p>
-            <p class="text-muted small mb-2">ИНН 7713488552, ОГРН 1227700215753</p>
-            <p class="text-muted small">Когда вы посещаете наши сайты, услуги или инструменты или взаимодействуете с ними, мы или наши авторизованные поставщики услуг можем использовать файлы cookie для хранения информации, чтобы помочь вам лучше, быстрее и безопаснее работать, а также в маркетинговых целях.</p>
+                <p class="text-white-70 small mb-1">&copy; 2026 ООО «Айтисолюшн»</p>
+                <p class="text-white-70 small mb-0">ИНН 7713488552, ОГРН 1227700215753</p>
+            </div>
+            
+            <!-- Колонка 2: Поддержка -->
+            <div class="col-md-3 mb-4 mb-md-0" style="padding-left: 15px;">
+                <h6 class="text-white fw-bold mb-3" style="font-size: 0.875rem; text-transform: uppercase;">ПОДДЕРЖКА:</h6>
+                <p class="text-white-70 small mb-1">+7 495 165-88-75</p>
+                <p class="text-white-70 small mb-0">info@ruherb.pro</p>
+            </div>
+            
+            <!-- Колонка 3: Пользовательское соглашение -->
+            <div class="col-md-3 mb-4 mb-md-0" style="padding-left: 15px;">
+                <h6 class="text-white fw-bold mb-3" style="font-size: 0.875rem; text-transform: uppercase;">
+                    <a href="./terms.html" class="text-white" style="text-decoration: none;">ПОЛЬЗОВАТЕЛЬСКОЕ <br> СОГЛАШЕНИЕ</a>
+                </h6>
+            </div>
+            
+            <!-- Колонка 4: Политика конфиденциальности -->
+            <div class="col-md-3 mb-4 mb-md-0" style="padding-left: 15px;">
+                <h6 class="text-white fw-bold mb-3" style="font-size: 0.875rem; text-transform: uppercase;">
+                    <a href="./policy.html" class="text-white" style="text-decoration: none;">ПОЛИТИКА <br> КОНФИДЕНЦИАЛЬНОСТИ</a>
+                </h6>
+            </div>
         </div>
     </div>
 </footer>
